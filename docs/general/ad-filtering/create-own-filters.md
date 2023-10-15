@@ -255,7 +255,7 @@ This rule validation is not applied in the following cases:
     $app=~curl,document
     ```
 
-1. The rule contains one or more modifiers from among [`$cookie`](#cookie-modifier), [`$removeparam`](#removeparam-modifier), [`$removeheader`](#removeheader-modifier), [`$stealth`](#stealth-modifier).
+1. The rule contains one or more modifiers from among [`$cookie`](#cookie-modifier), [`$removeparam`](#removeparam-modifier), [`$removeheader`](#removeheader-modifier), [`$stealth`](#stealth-modifier), [`$denyallow`](#denyallow-modifier), [`$to`](#to-modifier).
 
     These rules will not be ignored:
 
@@ -264,6 +264,8 @@ This rule validation is not applied in the following cases:
     $cookie=ibbid
     $removeheader=location
     $stealth
+    $denyallow=example.org
+    $to=example.org
     ```
 
 ### Wildcard support for TLD (top-level domains) {#wildcard-for-tld}
