@@ -206,67 +206,7 @@ AdGuard Safari and AdGuard for iOS do not fully support regular expressions beca
 
 ### Restrictions on rules application {#rules-restrictions}
 
-Rules that match an arbitrarily large number of URLs are considered incorrect and will be ignored. This can happen if the rule doesn't contain a mask, or if the mask matches any URL with a certain protocol.
-
-This rule will be ignored:
-
-```text
-|http://$replace=/a/b/
-```
-
-This limitation can be circumvented by using a `/.*/` regular expression inside the mask.
-
-This rule will not be ignored:
-
-```text
-/.*/$replace=/a/b/
-```
-
-**Exceptions**
-
-This rule validation is not applied in the following cases:
-
-1. The rule contains [`$domain`](#domain-modifier) modifier that points to a specific domain list.
-
-    These rules will not be ignored:
-
-    ```text
-    $domain=example.com,script
-    $domain=example.*,script
-    ```
-
-    This rule will be ignored because of domain negation, which causes too wide of a rule application scope:
-
-    ```text
-    $domain=~example.com,script
-    ```
-
-1. The rule contains [`$app`](#app-modifier) modifier that points to a specific app list.
-
-    This rule will not be ignored:
-
-    ```text
-    $app=curl,document
-    ```
-
-    This rule will be ignored because of app negation, which causes too wide of a rule application scope:
-
-    ```text
-    $app=~curl,document
-    ```
-
-1. The rule contains one or more modifiers from among [`$cookie`](#cookie-modifier), [`$removeparam`](#removeparam-modifier), [`$removeheader`](#removeheader-modifier), [`$stealth`](#stealth-modifier), [`$denyallow`](#denyallow-modifier), [`$to`](#to-modifier).
-
-    These rules will not be ignored:
-
-    ```text
-    $removeparam=cx_recsWidget
-    $cookie=ibbid
-    $removeheader=location
-    $stealth
-    $denyallow=example.org
-    $to=example.org
-    ```
+Rules shorter than 4 characters are considered incorrect and will be ignored.
 
 ### Wildcard support for TLD (top-level domains) {#wildcard-for-tld}
 
