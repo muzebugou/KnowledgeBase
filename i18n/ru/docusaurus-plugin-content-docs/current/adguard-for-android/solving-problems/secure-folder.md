@@ -16,8 +16,8 @@ If you install AdGuard to [the *Secure folder* on your Android](https://www.sams
 1. Save the certificate (at this stage, you can rename it to make it easier to locate it later, which you will need to do).
 1. After the *Installation instructions* popup appears, **DO NOT** tap **Open Settings**.
 1. Минимизируйте приложение и перейдите в *Защищённую папку*.
-1. Tap the three-dot menu and go to **Settings** → **Other security settings**.
-1. Tap **Security certificates** → **Install from device storage** → **CA certificate** → **Install anyway**
+1. Коснитесь кебаб-меню и перейдите в **Настройки** →**Другие настройки безопасности**.
+1. Нажмите **Сертификаты безопасности** → **Установить из хранилища устройства** → **Сертификат ЦС** → **Установить в любом случае**
 1. Подтвердите установку графическим ключом/паролем/отпечатком пальца.
 1. Найдите и выберите ранее сохранённый сертификат, затем нажмите **Готово**.
 1. Вернитесь в приложение AdGuard и перейдите обратно на главный экран. Возможно, вам придется закрыть и перезапустить приложение, чтобы избавиться от сообщения *HTTPS-фильтрация выключена*.

@@ -1827,19 +1827,13 @@ Tato pravidla umožňují přepsat [zásadu odkazování stránky](https://devel
 
 Pravidlo výjimky s hodnotou modifikátoru zakáže pravidlo blokování se stejnou hodnotou modifikátoru. Pravidlo výjimky bez hodnoty modifikátoru zakáže všechna odpovídající pravidla zásad odkazování.
 
-Pokud požadavek odpovídá více pravidlům `$referrerpolicy`, která nejsou zakázána výjimkami, použije se pouze jedno z nich (není uvedeno, které).
+If a request matches multiple `$referrerpolicy` rules not disabled by exceptions, only one of them (it is not specified which one) is applied. `$referrerpolicy` rules without specified [content-type modifiers](#content-type-modifiers) apply to `$document` and `$subdocument` content types.
 
 **Příklady**
 
 - `||example.com^$referrerpolicy=unsafe-url` přepíše zásady odkazování pro `example.com` pomocí `unsafe-url`.
 - `@@||example.com^$referrerpolicy=unsafe-url` zakáže předchozí pravidlo.
 - `@@||example.com/abcd.html^$referrerpolicy` zakáže všechna pravidla `$referrerpolicy` na `example.com/abcd.html`.
-
-:::caution Omezení
-
-Pravidla `$referrerpolicy` jsou kompatibilní pouze s modifikátory typu obsahu `$document` a `$subdocument` [](#content-type-modifiers).
-
-:::
 
 :::info Kompatibilita
 
@@ -2255,7 +2249,6 @@ Aliasy modifikátorů (`1p`, `3p` atd.) nejsou do těchto kategorií zahrnuty, n
 
 - [`$app`](#app-modifier) s negovanými aplikacemi pomocí `~`,
 - [`$denyallow`](#denyallow-modifier),
-- [`$dnsrewrite`](#dnsrewrite-modifier),
 - [`$domain`](#domain-modifier) s negovanými doménami pomocí `~`,
 - [`$match-case`](#match-case-modifier),
 - [`$method`](#method-modifier) s negovanými metodami pomocí `~`,
